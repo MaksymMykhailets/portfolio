@@ -78,20 +78,19 @@ img {
 @media only screen and (min-width: 1440px) {
   .container {
     max-width: 1440px;
-    padding: 0 100px;
   }
 }
 
 .section {
-  padding: 32px 0;
+  padding-bottom: 64px;
 }
 @media only screen and (min-width: 768px) {
   .section {
-    padding: 48px 0;
+    padding-bottom: 96px;
   }
 }
 @media only screen and (min-width: 1440px) {
   .section {
-    padding: 82px 0;
+    padding-bottom: 164px;
   }
 }
