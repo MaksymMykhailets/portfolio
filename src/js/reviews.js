@@ -24,7 +24,7 @@ function createMarkup(arr) {
     <h3 class="card_title">${author}</h3>
     <p class="card_text">${review}</p> 
     </li>
-    </ul>`)
+    `)
         .join("") 
 }
 
