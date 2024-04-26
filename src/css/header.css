@@ -2,21 +2,27 @@
   position: absolute;
   padding-top: 32px;
   width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .header {
   margin: 0 auto;
   display: flex;
   max-width: 375px;
   justify-content: space-between;
-  padding: 0 16px;
+
 }
 @media screen and (min-width: 768px) {
   .header {
     max-width: 768px;
-    padding: 0 32px;
   }
 }
-
+@media only screen and (min-width: 1440px) {
+  .header {
+    max-width: 1440px;
+    /* padding: 0 32px; */
+  }
+}
 .logo-cont {
   display: flex;
   gap: 8px;
@@ -49,7 +55,6 @@
   gap: 5px;
 }
 
-
 @media only screen and (min-width: 768px) {
   .header-menu {
     display: flex;
@@ -57,19 +62,18 @@
     flex-direction: column;
   }
 }
-.open-modal-btn, 
-.close-btn {
+.open-modal-btn,
+.close-modal-btn {
   background: none;
   border: none;
 }
 @media only screen and (min-width: 768px) {
-  .open-modal-btn,
-  .close-btn {
+  .open-modal-btn {
     display: none;
   }
 }
 .open-btn-icon,
-.close-btn-icon {
+.close-modal-btn-icon {
   stroke: #fff;
 }
 
