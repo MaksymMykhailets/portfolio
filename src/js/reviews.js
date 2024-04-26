@@ -31,17 +31,3 @@ function createMarkup(arr) {
 
 addCardsOnPage()
 
-
-
-
-// const swiper = new Swiper('.reviews_swiper', {
-//   navigation: {
-//   nextEl: '.swiper_next_el',
-//  prevEl: '.swiper_prev_el',
-//   },
-//   keyboard: {
-//     enabled: true,
-//     onlyInViewport: true,
-//   },
-  
-// });
