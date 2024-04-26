@@ -7,6 +7,10 @@
     justify-content: center;
     align-items: center;
      overflow: clip;
+    background-image: url('path/to/your/image.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
 }
 .сontent::before {
     display: block;
@@ -72,7 +76,10 @@
 }
 
 .animate-covers {
-   
+    animation-name: marqueeLine;
+        animation-duration: 5s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
 }
 
 @keyframes marqueeLine {
