@@ -5,7 +5,8 @@
     position: relative;
     display: flex;
     justify-content: center;
-    /*align-items: center*/
+    align-items: center;
+     overflow: clip;
 }
 .сontent::before {
     display: block;
@@ -21,39 +22,58 @@
 }
 
 .content::after{
+    content: "a";
+    display: block;
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background-color: rgba(237, 59, 68, 0.6);
+        border-radius: 50%;
+        top: 0;
+        left: 30%;
+        z-index: 0;
     
 }
 
 .marquee {
-    position: absolute;
-    right: -800px;
+    top:0;
     left: 0;
+    z-index: 10;
+}
+
+.marquee__line {
+    flex-shrink: 0;
     overflow: hidden;
-    font-family: "Pridi", sans-serif;
-    font-weight: 600;
-    font-size: 34px;
-    text-transform: uppercase;
+    height: 346px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+    
 }
 
 .marquee__inner {
-    height: 100vh;
     display: flex;
     transform: rotate(16deg);
 }
 
 .marquee__line {
-    background-color: #FFDC00;
-    flex-shrink: 0;
+   display: flex;
     margin-right: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: calc(100% / 8);
     white-space: nowrap;
-    animation-name: marqueeLine;
-    animation-duration: 5s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
+    
+}
+
+
+.marquee__inner img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.animate-covers {
+   
 }
 
 @keyframes marqueeLine {
