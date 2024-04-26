@@ -13,7 +13,5 @@ const baseUrlReviews = "https://portfolio-js.b.goit.study/api/reviews";
     })
     return data;
 
-    
 }
 
-getApi()
