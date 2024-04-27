@@ -1,25 +1,18 @@
-function animateElementsOnScroll() {
-  const coverBlock = document.querySelector('.content');  
-  const images = document.querySelectorAll('.marquee__line');  
-
-  function handleEntry(entry) {
-    entry.forEach(change => {
-      if (change.isIntersecting) {
-        images.forEach(image => image.classList.add('animate-covers'));  
-      } else {
-        images.forEach(image => image.classList.remove('animate-covers')); 
-      }
-    });
-  }
-
-  let options = {
-    threshold: [0.5],  
-  };
-
-  let observer = new IntersectionObserver(handleEntry, options);  
-
-  observer.observe(coverBlock); 
+const сontainerForCovers = document.getElementById('animation')
+ 
+export async function checkViewport(container) {
+  return new Promise(resolve, reject => {
+    let rect = container.getBoundingClientRect();
+    resolve(
+      (rect.top >= 0 && rect.bottom <= window.innerHeight) ||
+      (rect.bottom >= 0 && rect.top <= window.innerHeight)
+    );
+   });
 }
 
- 
-animateElementsOnScroll();
+export async function animateCovers() {
+  let coversSection = document.querySelector('.covers');
+  let marqueeLines = coversSection.querySelectorAll('.marquee-line');
+
+  
+}
