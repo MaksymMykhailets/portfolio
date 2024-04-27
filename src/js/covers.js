@@ -1,28 +1,25 @@
-const сontainerForCovers = document.getElementById('animation')
- 
-export async function checkViewport(container) {
-  return new Promise(resolve, reject => {
-    let rect = container.getBoundingClientRect();
-    resolve(
-      (rect.top >= 0 && rect.bottom <= window.innerHeight) ||
-      (rect.bottom >= 0 && rect.top <= window.innerHeight)
+const containerForCovers = document.getElementById('animation');
+
+function isInViewport(element) {
+    let rect = element.getBoundingClientRect();
+    return (
+        (rect.top >= 0 && rect.bottom <= window.innerHeight) ||
+        (rect.bottom >= 0 && rect.top <= window.innerHeight)
     );
-   });
 }
 
-export async function animateCovers() {
-  let coversSection = document.querySelector('.covers');
-  let marqueeLines = coversSection.querySelectorAll('.marquee-line');
+function animateCircular() {
+    let coversSection = document.querySelector('.covers.section');
+    let marqueeLines = coversSection.querySelectorAll('.marquee-line');
 
-  marqueeLines.forEach(async (line) => {
-    let isVisible = await checkViewport(coversSection);
-    if (isVisible) {
-      line.classList.add('animate-covers');
-    } else {
-      line.classList.remove('animate-covers');
-    }
-  });
+    marqueeLines.forEach(function (line) {
+        if (isInViewport(coversSection)) {
+            line.classList.add('circular-animation');
+        } else {
+            line.classList.remove('circular-animation');
+        }
+    });
 }
 
-document.addEventListener('DOMContentLoaded', animateCovers)
-window.addEventListener('scroll', animateCovers)
+document.addEventListener('DOMContentLoaded', animateCircular);
+window.addEventListener('scroll', animateCircular);

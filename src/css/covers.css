@@ -1,15 +1,15 @@
 .covers__title {
     display: none;
 }
-.content {
+.content__covers {
     position: relative;
      height: 508px;
     overflow: hidden;
 
-    background-image: url('path/to/your/image.png');
+    /*background-image: url('path/to/your/image.png');
         background-size: cover;
         background-repeat: no-repeat;
-        background-position: center;
+        background-position: center;   Для background-image: */ 
 }
 
 .marquee {
@@ -24,19 +24,31 @@
     display: flex;
     transform: rotate(16deg);
     gap: 17px;
+    margin-bottom: 20px; /* Спитати чи правильно, конфлік з 
+    
+    ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }*/
 }
 
 .marquee__line {
    width: 282px;
    height: 168px;
    margin-top: 40px;
-    
+    flex-shrink: 0;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
 }
 
  
  
 
-.animate-covers {
+/*.animate-covers {
     animation-name: marqueeLine;
         animation-duration: 5s;
         animation-timing-function: ease-in-out;
@@ -51,28 +63,31 @@
     to {
         transform: translateX(-180%);
     }
+}*/
+
+
+.circular-animation {
+    animation-name: rotateImages;
+    animation-duration: 10s;
+    /* Тривалість анімації */
+    animation-timing-function: linear;
+    /* Функція вимірювання анімації */
+    animation-iteration-count: infinite;
+    /* Безкінечна анімація */
 }
 
-/* Media Queries */
+@keyframes rotateImages {
+    from {
+        transform: rotate(0deg);
+        /* Початковий кут обертання */
+    }
 
-/* Mobile */
-@media screen and (min-width: 320px) and (max-width: 374.98px) {
-    .covers {
-        padding-top: 64px;
+    to {
+        transform: rotate(360deg);
+        /* Кінцевий кут обертання (повний оборот) */
     }
 }
 
-/* Tablet */
-@media screen and (min-width: 768px) {
-    .covers {
-        padding-top: 49px;
-    }
-}
+ /*Media queries*/
 
-/* Desktop */
-@media screen and (min-width: 1440px) {
-    .covers {
-        padding-top: 81px;
-    }
-}
-
+ 
