@@ -1,21 +1,44 @@
-:root {
-  font-family: Inter Tight, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
-
-  color: #fafafa;
-  background-color: #1c1d20;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
 html {
   scroll-behavior: smooth;
 }
+
+body {
+  font-family: 'Inter Tight';
+  background-color: #1c1d20;
+  color: #fafafa;
+}
+
+.section {
+  padding-bottom: 64px;
+}
+@media only screen and (min-width: 768px) {
+  .section {
+    padding-bottom: 96px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .section {
+    padding-bottom: 164px;
+  }
+}
+
+.container {
+  max-width: 375px;
+  padding: 0 16px;
+  margin: 0 auto;
+}
+@media only screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding: 0 32px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .container {
+    max-width: 1440px;
+  }
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -28,6 +51,7 @@ html {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+
 /* Reset styles */
 h1,
 h2,
@@ -62,35 +86,4 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
-}
-
-.container {
-  max-width: 375px;
-  padding: 0 16px;
-  margin: 0 auto;
-}
-@media only screen and (min-width: 768px) {
-  .container {
-    max-width: 768px;
-    padding: 0 32px;
-  }
-}
-@media only screen and (min-width: 1440px) {
-  .container {
-    max-width: 1440px;
-  }
-}
-
-.section {
-  padding-bottom: 64px;
-}
-@media only screen and (min-width: 768px) {
-  .section {
-    padding-bottom: 96px;
-  }
-}
-@media only screen and (min-width: 1440px) {
-  .section {
-    padding-bottom: 164px;
-  }
 }
