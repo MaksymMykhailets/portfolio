@@ -9,19 +9,19 @@
 	margin-bottom: 32px;
 }
 
-li.projects-item>.project-wrapper {
+li.projects-item{
 	margin-bottom: 32px;
 	flex-shrink: 0;
 }
 
 @media only screen and (min-width: 768px) {
-   li.projects-item>.project-wrapper{
+   li.projects-item{
 	margin-bottom: 64px;
   }
 }
 
 @media only screen and (min-width: 1440px) {
-	li.projects-item>.project-wrapper{
+	li.projects-item{
 	display: flex;
 	flex-direction: row;
   }
