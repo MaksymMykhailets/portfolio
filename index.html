@@ -19,7 +19,7 @@
     <script type="module" crossorigin src="/portfolio/commonHelpers.js"></script>
     <link rel="modulepreload" crossorigin href="/portfolio/assets/vendor-93c6b08c.js">
     <link rel="stylesheet" href="/portfolio/assets/vendor-f53b51ae.css">
-    <link rel="stylesheet" href="/portfolio/assets/index-7e76d06c.css">
+    <link rel="stylesheet" href="/portfolio/assets/index-9b6add7b.css">
   </head>
   <body>
     <header class="section header-cont">
@@ -363,6 +363,7 @@
               <a
                 href="https://maksymmykhailets.github.io/portfolio/"
                 class="project-link"
+                target="_blank"
                 >See project</a
               >
             </div>
@@ -376,15 +377,12 @@
                 />
                 <!-- Mobile screen -->
                 <source
-                  media="(min-width: 320px)"
-                  srcset="
-                    ../images/project-1.png    1x,
-                    ../images/project-1@2x.png 2x
-                  "
+                  media="(max-width: 767px)"
+                  srcset="/portfolio/assets/project-1-df6c030e.png 1x, /portfolio/assets/project-1@2x-ead58511.png 2x"
                 />
                 <img
                   class="project-picture"
-                  src="../images/project-1.png"
+                  src="/portfolio/assets/project-1-df6c030e.png"
                   alt="reading-app"
                   width="311"
                   loading="lazy"
@@ -409,6 +407,7 @@
               <a
                 href="https://maksymmykhailets.github.io/portfolio/"
                 class="project-link"
+                target="_blank"
                 >See project</a
               >
             </div>
@@ -417,23 +416,17 @@
                 <!-- Desktop and tablet screen -->
                 <source
                   media="(min-width: 768px)"
-                  srcset="
-                    ../images/project-2-desk.png    1x,
-                    ../images/project-2-desk@2x.png 2x
-                  "
+                  srcset="/portfolio/assets/project-2-desk-731c4e84.png 1x, /portfolio/assets/project-2-desk@2x-a87399e9.png 2x"
                   width="614"
                 />
                 <!-- Mobile screen -->
                 <source
-                  media="(min-width: 320px)"
-                  srcset="
-                    ../images/project-2.png    1x,
-                    ../images/project-2@2x.png 2x
-                  "
+                  media="(max-width: 767px)"
+                  srcset="/portfolio/assets/project-2-3b6e13d4.png 1x, /portfolio/assets/project-2@2x-78ced5eb.png 2x"
                 />
                 <img
                   class="project-picture"
-                  src="../images/project-2.png"
+                  src="/portfolio/assets/project-2-3b6e13d4.png"
                   alt="pet-app"
                   width="311"
                   loading="lazy"
@@ -459,6 +452,7 @@
             <a
               href="https://maksymmykhailets.github.io/portfolio/"
               class="project-link"
+              target="_blank"
               >See project</a
             >
           </div>
@@ -468,17 +462,17 @@
               <source
                 media="(min-width: 768px)"
                 srcset="
-                  ../images/project-3-desk.png    1x,
-                  ../images/project-3-desk@2px.png 2x
+                  ./images/project-3-desk.png    1x,
+                  ./images/project-3-desk@2px.png 2x
                 "
                 width="614"
               />
               <!-- Mobile screen -->
               <source
-                media="(min-width: 320px)"
+                media="(max-width: 767px)"
                 srcset="
-                  ../images/project-3.png    1x,
-                  ../images/project-3@2px.png 2x
+                  ./images/project-3.png    1x,
+                  ./images/project-3@2px.png 2x
                 "
               />
               <img
@@ -491,8 +485,8 @@
             </picture>
           </div>
         </div>
-      </li>
-    </ul>
+        </li>
+      </ul>
 
       <div class="btns-container">
         <button class="swiper-button-prev swiper-btn">
