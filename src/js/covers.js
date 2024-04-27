@@ -14,5 +14,15 @@ export async function animateCovers() {
   let coversSection = document.querySelector('.covers');
   let marqueeLines = coversSection.querySelectorAll('.marquee-line');
 
-  
+  marqueeLines.forEach(async (line) => {
+    let isVisible = await checkViewport(coversSection);
+    if (isVisible) {
+      line.classList.add('animate-covers');
+    } else {
+      line.classList.remove('animate-covers');
+    }
+  });
 }
+
+document.addEventListener('DOMContentLoaded', animateCovers)
+window.addEventListener('scroll', animateCovers)

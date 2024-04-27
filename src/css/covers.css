@@ -6,14 +6,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-     overflow: hidden;
+    overflow: hidden;
 
     background-image: url('path/to/your/image.png');
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
 }
-.сontent::before {
+.content::before {
     display: block;
     content: "";
     position: absolute;
