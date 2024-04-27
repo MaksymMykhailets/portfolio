@@ -1,7 +1,7 @@
 import Swiper from 'swiper';
 import 'swiper/css';
 
-const swiperEl = document.querySelector('.swiper')
+const swiperEl = document.querySelector('.swiper-container')
 
 const swiper = new Swiper(swiperEl, {
   // configuration options
