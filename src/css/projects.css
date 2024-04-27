@@ -113,7 +113,7 @@ text-align: center;
 	align-items: center;
 	gap: 10px;
 	border-radius: 60px;
-	background: #ed3b44;
+	background-color: #ed3b44;
 	color: #fafafa;
 	font-family: "Inter Tight";
 	font-size: 16px;
@@ -128,6 +128,10 @@ text-align: center;
    .project-link-btn{
 	padding: 18px 50px;
   }
+}
+
+.project-link:hover{
+	background-color: #E0373F;
 }
 
 .img-container {
