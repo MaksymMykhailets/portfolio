@@ -3,9 +3,7 @@
 }
 .content {
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+     height: 508px;
     overflow: hidden;
 
     background-image: url('path/to/your/image.png');
@@ -13,68 +11,30 @@
         background-repeat: no-repeat;
         background-position: center;
 }
-.content::before {
-    display: block;
-    content: "";
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    background-color: rgba(237, 59, 68, 0.6);
-    border-radius: 50%;
-    top: 300px;
-    left: 30px;
-    z-index: 0;
-}
-
-.content::after{
-    content: "a";
-        display: block;
-        position: absolute;
-        width: 50px;
-        height: 50px;
-        background-color: rgba(237, 59, 68, 0.6);
-        border-radius: 50%;
-        top: 0;
-        left: 30%;
-        z-index: 0;
-}
 
 .marquee {
-    top:0;
-    left: 0;
-    z-index: 10;
-}
-
-.marquee__line {
-    flex-shrink: 0;
-    overflow: hidden;
-    height: 346px;
-    margin-right: 20px;
-    margin-bottom: 30px;
-    
+   position: absolute;
+   right: -1325px;
+   left: -100px;
+   top: 65px;
 }
 
 .marquee__inner {
+    height: auto;
     display: flex;
     transform: rotate(16deg);
+    gap: 17px;
 }
 
 .marquee__line {
-   display: flex;
-    margin-right: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    white-space: nowrap;
+   width: 282px;
+   height: 168px;
+   margin-top: 40px;
     
 }
 
-
-.marquee__inner img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
+ 
+ 
 
 .animate-covers {
     animation-name: marqueeLine;
