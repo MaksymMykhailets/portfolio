@@ -4,29 +4,29 @@ import 'swiper/css/keyboard';
 import 'swiper/css/mousewheel';
 import 'swiper/css/navigation';
 
-const swiperEl = document.querySelector('.swiper-container')
 
-const swiper = new Swiper(swiperEl, {
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-  // on: {
-  //   slideChange: function () {
-  //     if (swiper.isEnd) {
-  //       swiper.navigation.next.disable();
-  //     } else {
-  //       swiper.navigation.next.enable();
-  //     }
-
-  //     if (swiper.isBeginning) {
-  //       swiper.navigation.prev.disable();
-  //     } else {
-  //       swiper.navigation.prev.enable();
-  //     }
-  //   },
-  // },
-});
+  const swiper = new Swiper('.swiper', {
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    slidesPerView: 1,
+    on: {
+      slideChange: function () {
+        if (swiper.isEnd) {
+          swiper.navigation.nextEl.classList.add('swiper-button-disabled');
+        } else {
+          swiper.navigation.nextEl.classList.remove('swiper-button-disabled');
+        }
+  
+        if (swiper.isBeginning) {
+          swiper.navigation.prevEl.classList.add('swiper-button-disabled');
+        } else {
+          swiper.navigation.prevEl.classList.remove('swiper-button-disabled');
+        }
+      },
+    },
+  });
 
   console.log(swiper);
 
