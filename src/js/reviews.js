@@ -1,8 +1,13 @@
 import Swiper from 'swiper';
 import 'swiper/css';
-import {getApi} from './api';
+
+import { getApi } from './api';
+
+import iziToast from "izitoast";
+import "izitoast/dist/css/iziToast.min.css";
 
 const list = document.querySelector(".swiper-wrapper");
+const placeholderText = document.querySelector(".placeholder_text");
 
 async function addCardsOnPage() {
     try {
@@ -10,7 +15,15 @@ async function addCardsOnPage() {
      list.insertAdjacentHTML("beforeend", createMarkup(data));
     }
     catch (error) {
-        console.log(error.message);
+        placeholderText.classList.replace("visually-hidden", "title_not_found");
+        iziToast.show({
+        message: 'Reviews Not found',
+        backgroundColor: '#ed3b44',
+        messageColor: '#fafafa',
+        position: 'topRight',
+        timeout: 2000
+        
+        });
         
     }
     
