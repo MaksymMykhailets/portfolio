@@ -1,5 +1,3 @@
-// export const api;
-
 import axios from 'axios';
 
 const baseUrlReviews = "https://portfolio-js.b.goit.study/api/reviews";

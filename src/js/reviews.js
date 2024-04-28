@@ -2,7 +2,7 @@ import Swiper from 'swiper';
 import 'swiper/css';
 import {getApi} from './api';
 
-const list = document.querySelector(".reviews_swiper_wrapper");
+const list = document.querySelector(".swiper-wrapper");
 
 async function addCardsOnPage() {
     try {
@@ -18,7 +18,7 @@ async function addCardsOnPage() {
  
 function createMarkup(arr) {
     return arr.map(({ id, author, avatar_url, review }) => `
-    <div class="reviews_swiper_slide">
+    <div class="swiper-slide">
     <li class="card" data-id ="${id}">
     <img class="card_img" src="${avatar_url}" alt="photo">
     <h3 class="card_title">${author}</h3>
