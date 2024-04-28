@@ -1,25 +1,28 @@
-function animateElementsOnScroll() {
-  const coverBlock = document.querySelector('.content');  
-  const images = document.querySelectorAll('.marquee__line');  
+const containerForCovers = document.getElementById('animation');
 
-  function handleEntry(entry) {
-    entry.forEach(change => {
-      if (change.isIntersecting) {
-        images.forEach(image => image.classList.add('animate-covers'));  
-      } else {
-        images.forEach(image => image.classList.remove('animate-covers')); 
-      }
-    });
-  }
-
-  let options = {
-    threshold: [0.5],  
-  };
-
-  let observer = new IntersectionObserver(handleEntry, options);  
-
-  observer.observe(coverBlock); 
+function isInViewport(element) {
+    let rect = element.getBoundingClientRect();
+    return (
+        (rect.top >= 0 && rect.bottom <= window.innerHeight) ||
+        (rect.bottom >= 0 && rect.top <= window.innerHeight)
+    );
 }
 
- 
-animateElementsOnScroll();
+function animateCircular() {
+    let marquee = document.querySelector('.marquee');
+
+    if (isInViewport(marquee)) {
+        let marqueeLines = marquee.querySelectorAll('.marquee__line');
+        marqueeLines.forEach(function (line) {
+            line.classList.add('animate-covers');
+        });
+    } else {
+        let marqueeLines = marquee.querySelectorAll('.marquee__line');
+        marqueeLines.forEach(function (line) {
+            line.classList.remove('animate-covers');
+        });
+    }
+}
+
+document.addEventListener('DOMContentLoaded', animateCircular);
+window.addEventListener('scroll', animateCircular);
