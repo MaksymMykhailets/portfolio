@@ -1,15 +1,12 @@
-.covers__title {
-    display: none;
-}
 .content__covers {
     position: relative;
      height: 508px;
     overflow: hidden;
- 
-    /*background-image: url('path/to/your/image.png');
+     background-image: url('../images/blur.png');
         background-size: cover;
         background-repeat: no-repeat;
-        background-position: center;   Для background-image: */ 
+        background-position: center;
+        max-width: 100%;
 }
 
 .marquee {
@@ -46,9 +43,7 @@
 }
 
  
- 
-
-/*.animate-covers {
+ .animate-covers {
     animation-name: marqueeLine;
         animation-duration: 5s;
         animation-timing-function: ease-in-out;
@@ -63,31 +58,18 @@
     to {
         transform: translateX(-180%);
     }
-}*/
-
-
-.circular-animation {
-    animation-name: rotateImages;
-    animation-duration: 10s;
-    /* Тривалість анімації */
-    animation-timing-function: linear;
-    /* Функція вимірювання анімації */
-    animation-iteration-count: infinite;
-    /* Безкінечна анімація */
 }
-
-@keyframes rotateImages {
-    from {
-        transform: rotate(0deg);
-        /* Початковий кут обертання */
-    }
-
-    to {
-        transform: rotate(360deg);
-        /* Кінцевий кут обертання (повний оборот) */
-    }
-}
-
+  
  /*Media queries*/
+
+ @media screen and (min-resolution: 192dpi) and (max-width: 767px),
+ screen and (min-resolution: 2dppx) and (max-width: 767px),
+ screen and (min-device-pixel-ratio: 2) and (max-width: 767px) {
+    .content__covers {
+        background-image: url(../images/blur@2x.png);
+    }
+ }
+
+ 
 
  

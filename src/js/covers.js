@@ -9,16 +9,19 @@ function isInViewport(element) {
 }
 
 function animateCircular() {
-    let coversSection = document.querySelector('.covers.section');
-    let marqueeLines = coversSection.querySelectorAll('.marquee-line');
+    let marquee = document.querySelector('.marquee');
 
-    marqueeLines.forEach(function (line) {
-        if (isInViewport(coversSection)) {
-            line.classList.add('circular-animation');
-        } else {
-            line.classList.remove('circular-animation');
-        }
-    });
+    if (isInViewport(marquee)) {
+        let marqueeLines = marquee.querySelectorAll('.marquee__line');
+        marqueeLines.forEach(function (line) {
+            line.classList.add('animate-covers');
+        });
+    } else {
+        let marqueeLines = marquee.querySelectorAll('.marquee__line');
+        marqueeLines.forEach(function (line) {
+            line.classList.remove('animate-covers');
+        });
+    }
 }
 
 document.addEventListener('DOMContentLoaded', animateCircular);
