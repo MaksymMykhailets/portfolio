@@ -11,7 +11,7 @@
 
 .marquee {
    position: absolute;
-   right: -1325px;
+   right: -2000px;
    left: -100px;
    top: 65px;
 }
@@ -62,6 +62,8 @@
   
  /*Media queries*/
 
+
+/* Mobile screen*/
  @media screen and (min-resolution: 192dpi) and (max-width: 767px),
  screen and (min-resolution: 2dppx) and (max-width: 767px),
  screen and (min-device-pixel-ratio: 2) and (max-width: 767px) {
@@ -70,6 +72,58 @@
     }
  }
 
+/* Tablet screen*/
+ @media screen and (min-width: 768px) {
+    .content__covers {
+        background-image: url(../images/blur-tab.png);
+        height: 960px;
+    }
+        .marquee__line{
+            width: 544px;
+                height: 314px;
+                padding-right: 10px;
+                margin-top: 40px;
+        }
+                .marquee {
+                    right: -3000px;
+                    top:   200px;
+                    left: -100px;
+                }
+
+ }
+
+ @media screen and (min-resolution: 192dpi) and (min-width: 768px),
+ screen and (min-resolution: 2dppx) and (min-width: 768px),
+ screen and (min-device-pixel-ratio: 2) and (min-width: 768px) {
+    .content__covers {
+            background-image: url(../images/blur-tab@2x.png);
+        }
+ }
+
+
+/* Desktop screen*/
+ @media screen and (min-width: 1440px) {
+    .content__covers {
+            background-image: url(../images/blur-desc.png);
+        }
+                .marquee {
+                    right: -3000px;
+                    top: -100px;
+                    left: -500px;
+                }
+                .marquee__line {
+                    width: 544px;
+                    height: 314px;
+                }
+ }
  
+ @media screen and (min-resolution: 192dpi) and (min-width: 1440px),
+ screen and (min-resolution: 2dppx) and (min-width: 1440px),
+ screen and (min-device-pixel-ratio: 2) and (min-width: 1440px) {
+        .content__covers {
+                background-image: url(../images/blur-desc@2x.png);
+            }
+ }
+
 
  
