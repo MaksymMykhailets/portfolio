@@ -44,10 +44,10 @@
 @media only screen and (min-width: 1440px) {
   .hero-container {
     margin-bottom: 243px;
-    padding: 0 146px;
   }
 }
 .hero-title {
+  max-width: 343px;
   font-size: 50px;
   font-weight: 500;
   line-height: 1;
@@ -57,7 +57,14 @@
 
 @media only screen and (min-width: 768px) {
   .hero-title {
+    max-width: 632px;
     font-size: 90px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .hero-title {
+    max-width: 1084px;
+    margin: 0 auto;
   }
 }
 
@@ -75,6 +82,7 @@
 @media only screen and (min-width: 768px) {
   .socials-list {
     margin-left: auto;
+    gap: 8px;
   }
 }
 
@@ -87,10 +95,19 @@
   border-radius: 60px;
   border: 1px solid rgba(250, 250, 250, 0.2);
   transition: all 0.3s ease;
+
+  font-size: 14px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.02em;
+  transition: all 0.3s ease;
 }
-.item:last-child {
-  padding: 12px;
-  width: auto;
+@media only screen and (min-width: 768px) {
+  .item {
+    width: 55px;
+    height: 55px;
+    font-size: 16px;
+  }
 }
 
 .item:hover,
@@ -100,25 +117,19 @@
   border-color: #ed3b44;
   color: #ed3b44;
 }
+
+.item:last-child {
+  width: 178px;
+  padding: 10px 12px;
+}
+@media only screen and (min-width: 768px) {
+  .item:last-child {
+    width: 225px;
+    padding: 18px 24px;
+  }
+}
+
 .item:last-child:hover,
 .item:last-child:focus {
-  transform: scale(1.05);
-}
-
-.hero-link {
-  display: flex;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: normal;
-  letter-spacing: -0.02em;
-  transition: all 0.3s ease;
-}
-
-.hero-link:hover,
-.hero-link:focus {
-  transform: scale(1.1);
-}
-.hero-link:last-child:hover,
-.hero-link:last-child:focus {
   transform: scale(1.05);
 }
