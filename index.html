@@ -17,9 +17,9 @@
     />
     
     <script type="module" crossorigin src="/portfolio/commonHelpers.js"></script>
-    <link rel="modulepreload" crossorigin href="/portfolio/assets/vendor-95712d29.js">
-    <link rel="stylesheet" href="/portfolio/assets/vendor-d5558669.css">
-    <link rel="stylesheet" href="/portfolio/assets/index-de59f78c.css">
+    <link rel="modulepreload" crossorigin href="/portfolio/assets/vendor-1b66fce6.js">
+    <link rel="stylesheet" href="/portfolio/assets/vendor-f07dab48.css">
+    <link rel="stylesheet" href="/portfolio/assets/index-88b5ad83.css">
   </head>
   <body>
     <header class="section header-cont">
@@ -177,16 +177,19 @@
     </div>
   
     <div class="container about-me-info">
-      <div class="about-me-info-item">
-        <ul class="about-me-info-header">
-          <li class="about-me-info-title">ABOUT ME</li>
-          <li class="about-me-info-btn">
-            <svg class="about-me-nav-btn">
+      <div class="accordion-container">
+        <div class="ac about-me-info-item">
+          <div class="ac-trigger">
+            <ul class="ac-header- about-me-info-header">
+              <li class="about-me-info-title">ABOUT ME</li>
+              <li class="about-me-info-btn">
+                <svg class="about-me-nav-btn">
               <use href="../icons/icon-sprite.svg#icon-arrow-up"></use>
             </svg>
           </li>
         </ul>
-  
+      </div>
+      <div class="ac-panel about-me-info-text-list">
         <ul class="about-me-info-text-list">
           <li class="about-me-info-text">
             I am Lloyd Jefferson, a talented programmer with extensive expertise
@@ -210,8 +213,9 @@
           </li>
         </ul>
       </div>
-  
-      <div class="about-me-info-item">
+    </div>
+      <div class="ac about-me-info-item">
+        <div class="ac-trigger">
         <ul class="about-me-info-header">
           <li class="about-me-info-title">ROLE</li>
           <li class="about-me-info-btn">
@@ -220,13 +224,16 @@
             </svg>
           </li>
         </ul>
-  
-        <p class="about-me-info-text">Frontend development</p>
-        <p class="about-me-info-text">HeadlessCMS,Wordpress</p>
-        <p class="about-me-info-text">Blender(enjoy)</p>
+      </div>
+      <div class="ac-panel">
+        <p class="ac-text about-me-info-text">Frontend development</p>
+        <p class="ac-text about-me-info-text">HeadlessCMS,Wordpress</p>
+        <p class="ac-text about-me-info-text">Blender(enjoy)</p>
+      </div>
       </div>
   
-      <div class="about-me-info-item">
+      <div class="ac about-me-info-item">
+        <div class="ac-trigger">
         <ul class="about-me-info-header">
           <li class="about-me-info-title">EDUCATION</li>
           <li class="about-me-info-btn">
@@ -235,39 +242,24 @@
             </svg>
           </li>
         </ul>
+      </div>
   
-        <p class="about-me-info-text">
+      <div class="ac-panel">
+        <p class="ac-text about-me-info-text">
           2018 - 2019 / Frontend Development Diploma, GoIT IT School, New York
         </p>
-        <p class="about-me-info-text">
-          2019 - 2020 / Advanced Web Development Certificate, GoIT IT School, New
-          York
+        <p class="ac-text about-me-info-text">
+          2019 - 2020 / Advanced Web Development Certificate, GoIT IT School,
+          New York
         </p>
-        <p class="about-me-info-text">
+        <p class="ac-text about-me-info-text">
           2020 - 2022 / Advanced Blender Animation Techniques, Udemy
         </p>
       </div>
-    </div>
-  
-    <div class="container">
-      
-      <div class="swiper">
-       
-        <div class="swiper-wrapper">
-          
-          <div class="swiper-slide">Slide 1</div>
-          <div class="swiper-slide">Slide 2</div>
-          <div class="swiper-slide">Slide 3</div>
-          ...
-        </div>
-       
-        <div class="swiper-button-prev">PREV</div>
-        <div class="swiper-button-next">NEXT</div>
-  
-        
-        <div class="swiper-scrollbar"></div>
       </div>
     </div>
+  
+    
   
     <div class="container">
       <div class="about-me-skills-swiper">
