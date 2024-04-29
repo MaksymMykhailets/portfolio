@@ -169,7 +169,7 @@ gap: 12px;
   }
 }
 
-div.swiper-button-prev, div.swiper-button-next {
+div.swiper-button-prev-style, div.swiper-button-next-style {
 	position: static;
 	padding: 14px;
 	border-radius: 60px;
