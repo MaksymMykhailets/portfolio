@@ -1,0 +1,58 @@
+<div class="footer container" id="work-together">
+  <h2 class="footer-title">
+    <picture class="footer-img">
+      <source srcset="../images/avatar.png 1x, ../images/avatar@2x.png 2x" />
+      <img src="../images/avatar.png" alt="avatar" />
+    </picture>
+
+    Let’s <span class="footer-title-red">work</span> together
+  </h2>
+
+  <form class="footer-form" action="submit">
+    <div class="footer-form-box">
+      <label class="input-wrapper">
+        <input
+          class="footer-form-input"
+          type="email"
+          placeholder="clients@gmail.com"
+          name="email"
+          pattern="^\w+(\.\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
+          required
+        />
+      </label>
+      <label class="input-wrapper">
+        <input
+          class="footer-form-input"
+          type="text"
+          placeholder="comments"
+          name="comments"
+          maxlength="100"
+          required
+        />
+      </label>
+    </div>
+    <button class="footer-form-button" type="submit">Send</button>
+  </form>
+
+  <address class="footer-address">
+    <a class="footer-link" href="mailto:lloydjefferson@gmail.com"
+      >lloydjefferson@gmail.com</a
+    >
+    <a class="footer-link" href="tel:+3801111111111">+380 11 1111 11 11</a>
+  </address>
+</div>
+
+<div class="modal-backdrop visually-hidden">
+  <div class="modal-box">
+    <h3 class="modal-title">Thank you for your interest in cooperation!</h3>
+    <p class="modal-text">
+      The manager will contact you shortly to discuss further details and
+      opportunities for cooperation. Please stay in touch.
+    </p>
+    <button class="modal-close-button" type="button">
+      <svg class="modal-close-button-icon" width="22" height="22">
+        <use href="../icons/message.svg"></use>
+      </svg>
+    </button>
+  </div>
+</div>
