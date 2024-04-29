@@ -1,0 +1,129 @@
+.content__covers {
+    position: relative;
+     height: 508px;
+    overflow: hidden;
+     background-image: url('../images/blur.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        max-width: 100%;
+}
+
+.marquee {
+   position: absolute;
+   right: -2000px;
+   left: -100px;
+   top: 65px;
+}
+
+.marquee__inner {
+    height: auto;
+    display: flex;
+    transform: rotate(16deg);
+    gap: 17px;
+    margin-bottom: 20px; /* Спитати чи правильно, конфлік з 
+    
+    ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }*/
+}
+
+.marquee__line {
+   width: 282px;
+   height: 168px;
+   margin-top: 40px;
+    flex-shrink: 0;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+ 
+ .animate-covers {
+    animation-name: marqueeLine;
+        animation-duration: 5s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+}
+
+@keyframes marqueeLine {
+    from {
+        transform: translateX(-20%);
+    }
+
+    to {
+        transform: translateX(-180%);
+    }
+}
+  
+ /*Media queries*/
+
+
+/* Mobile screen*/
+ @media screen and (min-resolution: 192dpi) and (max-width: 767px),
+ screen and (min-resolution: 2dppx) and (max-width: 767px),
+ screen and (min-device-pixel-ratio: 2) and (max-width: 767px) {
+    .content__covers {
+        background-image: url(../images/blur@2x.png);
+    }
+ }
+
+/* Tablet screen*/
+ @media screen and (min-width: 768px) {
+    .content__covers {
+        background-image: url(../images/blur-tab.png);
+        height: 960px;
+    }
+        .marquee__line{
+            width: 544px;
+                height: 314px;
+                padding-right: 10px;
+                margin-top: 40px;
+        }
+                .marquee {
+                    right: -3000px;
+                    top:   200px;
+                    left: -100px;
+                }
+
+ }
+
+ @media screen and (min-resolution: 192dpi) and (min-width: 768px),
+ screen and (min-resolution: 2dppx) and (min-width: 768px),
+ screen and (min-device-pixel-ratio: 2) and (min-width: 768px) {
+    .content__covers {
+            background-image: url(../images/blur-tab@2x.png);
+        }
+ }
+
+
+/* Desktop screen*/
+ @media screen and (min-width: 1440px) {
+    .content__covers {
+            background-image: url(../images/blur-desc.png);
+        }
+                .marquee {
+                    right: -3000px;
+                    top: -100px;
+                    left: -500px;
+                }
+                .marquee__line {
+                    width: 544px;
+                    height: 314px;
+                }
+ }
+ 
+ @media screen and (min-resolution: 192dpi) and (min-width: 1440px),
+ screen and (min-resolution: 2dppx) and (min-width: 1440px),
+ screen and (min-device-pixel-ratio: 2) and (min-width: 1440px) {
+        .content__covers {
+                background-image: url(../images/blur-desc@2x.png);
+            }
+ }
+
+
+ 

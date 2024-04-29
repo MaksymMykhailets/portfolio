@@ -1,9 +1,9 @@
-<section class="projects container">
-  <h2 class="projects-title">Projects</h2>
-  <div class="swiper">
-    <ul class="swiper-wraper">
-      <li class="projects-item">
-        <div class="swiper-slide project-wrapper">
+<section class="projects section">
+  <div class="container">
+    <h2 class="projects-title">Projects</h2>
+    <div class="swiper">
+      <ul class="swiper-wrapper">
+        <li class="swiper-slide projects-item">
           <div class="desc-container">
             <ul class="tech-list">
               <li class="item-tech">#react</li>
@@ -18,6 +18,7 @@
             <a
               href="https://maksymmykhailets.github.io/portfolio/"
               class="project-link"
+              target="_blank"
               >See project</a
             >
           </div>
@@ -34,11 +35,8 @@
               />
               <!-- Mobile screen -->
               <source
-                media="(min-width: 320px)"
-                srcset="
-                  ./images/project-1.png    1x,
-                  ./images/project-1@2x.png 2x
-                "
+                media="(max-width: 767px)"
+                srcset="./images/project-1.png 1x, ./images/project-1@2x.png 2x"
               />
               <img
                 class="project-picture"
@@ -49,11 +47,9 @@
               />
             </picture>
           </div>
-        </div>
-      </li>
+        </li>
 
-      <li class="projects-item visually-hidden">
-        <div class="swiper-slide">
+        <li class="swiper-slide projects-item">
           <div class="desc-container">
             <ul class="tech-list">
               <li class="item-tech">#react</li>
@@ -67,6 +63,7 @@
             <a
               href="https://maksymmykhailets.github.io/portfolio/"
               class="project-link"
+              target="_blank"
               >See project</a
             >
           </div>
@@ -83,11 +80,8 @@
               />
               <!-- Mobile screen -->
               <source
-                media="(min-width: 320px)"
-                srcset="
-                  ./images/project-2.png    1x,
-                  ./images/project-2@2x.png 2x
-                "
+                media="(max-width: 767px)"
+                srcset="./images/project-2.png 1x, ./images/project-2@2x.png 2x"
               />
               <img
                 class="project-picture"
@@ -98,11 +92,9 @@
               />
             </picture>
           </div>
-        </div>
-      </li>
+        </li>
 
-      <li class="projects-item visually-hidden">
-        <div class="swiper-slide">
+        <li class="swiper-slide projects-item">
           <div class="desc-container">
             <ul class="tech-list">
               <li class="item-tech">#react</li>
@@ -117,6 +109,7 @@
             <a
               href="https://maksymmykhailets.github.io/portfolio/"
               class="project-link"
+              target="_blank"
               >See project</a
             >
           </div>
@@ -126,17 +119,17 @@
               <source
                 media="(min-width: 768px)"
                 srcset="
-                  ./images/project-3-desk.png    1x,
-                  ./images/project-3-desk@2x.png 2x
+                  ./images/project-3-desk.png     1x,
+                  ./images/project-3-desk@2px.png 2x
                 "
                 width="614"
               />
               <!-- Mobile screen -->
               <source
-                media="(min-width: 320px)"
+                media="(max-width: 767px)"
                 srcset="
-                  ./images/project-3.png    1x,
-                  ./images/project-3@2x.png 2x
+                  ./images/project-3.png     1x,
+                  ./images/project-3@2px.png 2x
                 "
               />
               <img
@@ -148,21 +141,20 @@
               />
             </picture>
           </div>
+        </li>
+      </ul>
+       <div class="btn-container">
+        <div class="swiper-button-prev swiper-button-prev-style">
+          <svg class="swiper-icon">
+            <use href="./icons/icon-sprite.svg#icon-arrow-left"></use>
+          </svg>
         </div>
-      </li>
-    </ul>
-
-    <div class="btns-container">
-      <button class="swiper-button-prev swiper-btn">
-        <svg class="swiper-icon" width="32" height="32">
-          <use href="./icons/icon-sprite.svg#icon-arrow-left"></use>
-        </svg>
-      </button>
-      <button class="swiper-button-next swiper-btn">
-        <svg class="swiper-icon" width="32" height="32">
-          <use href="./icons/icon-sprite.svg#icon-arrow-right"></use>
-        </svg>
-      </button>
+        <div class="swiper-button-next swiper-button-next-style">
+          <svg class="swiper-icon">
+            <use href="./icons/icon-sprite.svg#icon-arrow-right"></use>
+          </svg>
+        </div>
+      </div>  
     </div>
   </div>
 </section>
