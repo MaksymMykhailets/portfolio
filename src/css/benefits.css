@@ -12,6 +12,13 @@
 }
 .content {
 }
+@media only screen and (min-width: 1440px) {
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
 .content-list {
 }
 @media only screen and (min-width: 768px) {
@@ -23,6 +30,9 @@
 }
 @media only screen and (min-width: 1440px) {
   .content-list {
+    display: flex;
+    width: calc(100% - 680px / 2);
+    justify-content: flex-end;
   }
 }
 
@@ -79,4 +89,10 @@
   padding: 18px 36px;
   width: 187px;
   height: 55px;
+}
+@media only screen and (min-width: 1440px) {
+  .anchor {
+    margin-left: 672px;
+    width: auto;
+  }
 }
