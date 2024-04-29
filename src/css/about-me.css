@@ -375,6 +375,10 @@
     width: 600px;
     /* margin-right: 64px; */
   }
+  .swiper-wrapper,
+  .about-me-swiper-wrapper {
+    height: 200px;
+  }
   .about-me-swiper-wrapper {
     /* width: 600px; */
   }

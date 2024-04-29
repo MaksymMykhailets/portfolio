@@ -1,4 +1,8 @@
 import Accordion from 'accordion-js';
+console.log('initSwiper');
+import { initSwiper } from './swiper';
+console.log(initSwiper);
+
 /*import 'accordion-js/dist/accordion.min.css';*/
 //import Swiper from 'swiper';
 //import 'swiper/css';
@@ -9,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
   );
   new Accordion(accordions, {
     duration: 400,
-    openOnInit: 'all',
+    openOnInit: [0],
     showMultiple: true,
     beforeOpen: function (currentElement) {
       let use = currentElement.querySelector('use[href]');
@@ -21,19 +25,19 @@ document.addEventListener('DOMContentLoaded', function () {
     },
   });
 });
+
 //swiper//
+/*
 import Swiper from 'swiper';
 import { Navigation, Pagination } from 'swiper/modules';
 // import Swiper and modules styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination'; // // init Swiper:
-// const swiper = new Swiper('.swiper', {
-//   // configure Swiper to use modules
-//   modules: [Navigation, Pagination],
-// });
 const aboutmeSwiper = new Swiper('.about-me-swiper', {
-  modules: [Navigation, Pagination],
+*/
+const aboutmeSwiper = initSwiper('.about-me-swiper', {
+  //modules: [Navigation], //Pagination],
   loop: true,
   spaceBetween: 0,
   slidesPerView: 2,
@@ -56,13 +60,9 @@ const aboutmeSwiper = new Swiper('.about-me-swiper', {
       spaceBetween: 0,
     },
   },
-  // navigation: {
-  // nextEl: '.about-me-slide-next',
-  // prevEl: '.projects-button-prev',
-  // },
 });
-const nextSlideBtn = document.querySelector('.about-me-slide-next');
-nextSlideBtn.addEventListener('click', e => {
-  console.log('click-nextSlideBtn');
+const nextSlide_Btn = document.querySelector('.about-me-slide-next');
+nextSlide_Btn.addEventListener('click', e => {
+  console.log(e);
   aboutmeSwiper.slideNext();
 });
