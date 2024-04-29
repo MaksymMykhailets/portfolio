@@ -9,11 +9,19 @@ document.addEventListener('DOMContentLoaded', function () {
     showMultiple: true,
     beforeOpen: function (currentElement) {
       let use = currentElement.querySelector('use[href]');
-      use.setAttribute('href', './icons/icon-sprite.svg#icon-arrow-up');
+      //   use.setAttribute('href', './icons/icon-sprite.svg#icon-arrow-up');
+      use.setAttribute(
+        'href',
+        '/portfolio/assets/icon-sprite-1e5406a1.svg#icon-arrow-up'
+      );
     },
     beforeClose: function (currentElement) {
       let use = currentElement.querySelector('use[href]');
-      use.setAttribute('href', './icons/icon-sprite.svg#icon-arrow-down');
+      //   use.setAttribute('href', './icons/icon-sprite.svg#icon-arrow-down');
+      use.setAttribute(
+        'href',
+        '/portfolio/assets/icon-sprite-1e5406a1.svg#icon-arrow-down'
+      );
     },
   });
 
