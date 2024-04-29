@@ -1,9 +1,15 @@
-import Swiper from 'swiper';
-import 'swiper/css';
-import 'swiper/css/keyboard';
-import 'swiper/css/mousewheel';
-import 'swiper/css/navigation';
+// import Swiper from 'swiper';
+// import { Navigation, Pagination } from 'swiper/modules';
 
+// import 'swiper/css';
+// import 'swiper/css/keyboard';
+// import 'swiper/css/mousewheel';
+// import 'swiper/css/navigation';
+
+import Swiper from 'swiper/bundle';
+
+// import styles bundle
+import 'swiper/css/bundle';
 
   const swiper = new Swiper('.swiper', {
     navigation: {
@@ -28,5 +34,4 @@ import 'swiper/css/navigation';
     },
   });
 
-  console.log(swiper);
 
