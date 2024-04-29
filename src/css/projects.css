@@ -169,7 +169,7 @@ div.swiper-button-prev, div.swiper-button-next {
 	
 }
 
-.swiper-btn:disabled {
+.swiper-button-disabled {
 	border: 1px solid rgba(250, 250, 250, 0.2);
 }
 
@@ -208,6 +208,6 @@ div.swiper-button-prev, div.swiper-button-next {
 	height: 32px;
   }
 }
-.swiper-icon:disabled{
+.swiper-button-disabled>.swiper-icon{
 	stroke: #3B3B3B;
 }

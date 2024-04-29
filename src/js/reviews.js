@@ -1,8 +1,13 @@
 import Swiper from 'swiper';
 import 'swiper/css';
-import {getApi} from './api';
 
-const list = document.querySelector(".reviews_swiper_wrapper");
+import { getApi } from './api';
+
+import iziToast from "izitoast";
+import "izitoast/dist/css/iziToast.min.css";
+
+const list = document.querySelector(".swiper-wrapper");
+const placeholderText = document.querySelector(".placeholder_text");
 
 async function addCardsOnPage() {
     try {
@@ -10,7 +15,15 @@ async function addCardsOnPage() {
      list.insertAdjacentHTML("beforeend", createMarkup(data));
     }
     catch (error) {
-        console.log(error.message);
+        placeholderText.classList.replace("visually-hidden", "title_not_found");
+        iziToast.show({
+        message: 'Reviews Not found',
+        backgroundColor: '#ed3b44',
+        messageColor: '#fafafa',
+        position: 'topRight',
+        timeout: 2000
+        
+        });
         
     }
     
@@ -18,7 +31,7 @@ async function addCardsOnPage() {
  
 function createMarkup(arr) {
     return arr.map(({ id, author, avatar_url, review }) => `
-    <div class="reviews_swiper_slide">
+    <div class="swiper-slide">
     <li class="card" data-id ="${id}">
     <img class="card_img" src="${avatar_url}" alt="photo">
     <h3 class="card_title">${author}</h3>
