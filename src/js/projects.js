@@ -42,6 +42,14 @@ const param = {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',
         },
+        mousewheel: {
+          invert: true,
+        },
+        keyboard: {
+          enabled: true,
+          onlyInViewport: false,
+        },
+        grabCursor: true,
         slidesPerView: 1,
         on: {
           slideChange: function () {
