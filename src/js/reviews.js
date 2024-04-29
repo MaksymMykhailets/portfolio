@@ -1,28 +1,59 @@
-import Swiper from 'swiper';
-import 'swiper/css';
+import Swiper from 'swiper/bundle';
+
+import 'swiper/css/bundle';
+
+import {initSwiper} from './swiper'
 
 import { getApi } from './api';
 
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
-const list = document.querySelector('.reviews-swiper-wrapper');
-const placeholderText = document.querySelector('.placeholder_text');
+const containerSwiper = document.querySelector(".swiper_js");
+const list = document.querySelector(".swiper_reviews");
+const placeholderText = document.querySelector(".placeholder_text");
+
+const swiperParam = {
+    navigation: {
+        nextEl: '.end',
+        prevEl: '.start',
+    },
+    keyboard: {
+        enabled: true,
+        onlyInViewport: true,
+    },
+    breakpoints: {
+        768: {
+            slidesPerView: 2,
+            spaceBetween: 16,
+        },
+        1440: {
+            slidesPerView: 4,
+            spaceBetween: 16,
+        }
+    },
+    mousewheel: {
+        sensitivity: 1
+    }
+}
 
 async function addCardsOnPage() {
-  try {
-    const data = await getApi();
-    list.insertAdjacentHTML('beforeend', createMarkup(data));
-  } catch (error) {
-    placeholderText.classList.replace('visually-hidden', 'title_not_found');
-    iziToast.show({
-      message: 'Reviews Not found',
-      backgroundColor: '#ed3b44',
-      messageColor: '#fafafa',
-      position: 'topRight',
-      timeout: 2000,
-    });
-  }
+    try {
+     const data = await getApi();
+        list.insertAdjacentHTML("beforeend", createMarkup(data));
+        initSwiper(containerSwiper, swiperParam);
+    }
+    catch (error) {
+        placeholderText.classList.replace("visually-hidden", "title_not_found");
+        iziToast.show({
+        message: 'Reviews Not found',
+        backgroundColor: '#ed3b44',
+        messageColor: '#fafafa',
+        position: 'topRight',
+        timeout: 2000
+        
+        });
+    }
 }
 
 function createMarkup(arr) {
