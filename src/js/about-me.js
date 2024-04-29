@@ -1,5 +1,6 @@
 import Accordion from 'accordion-js';
 import { initSwiper } from './swiper';
+import '../css/accordion.css';
 
 document.addEventListener('DOMContentLoaded', function () {
   const accordion = document.querySelector('.about-me-accordion-container');
