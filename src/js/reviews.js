@@ -6,8 +6,8 @@ import {initSwiper} from './swiper'
 
 import { getApi } from './api';
 
-import iziToast from "izitoast";
-import "izitoast/dist/css/iziToast.min.css";
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 
 const containerSwiper = document.querySelector(".swiper_js");
 const list = document.querySelector(".swiper_reviews");
@@ -53,13 +53,13 @@ async function addCardsOnPage() {
         timeout: 2000
         
         });
-        
     }
-    
 }
- 
+
 function createMarkup(arr) {
-    return arr.map(({ id, author, avatar_url, review }) => `
+  return arr
+    .map(
+      ({ id, author, avatar_url, review }) => `
     <div class="swiper-slide">
     <li class="card" data-id ="${id}">
     <img class="card_img" src="${avatar_url}" alt="photo">
@@ -67,9 +67,9 @@ function createMarkup(arr) {
     <p class="card_text">${review}</p> 
     </li>
     </div>
-    `)
-        .join("") 
+    `
+    )
+    .join('');
 }
 
-addCardsOnPage()
-
+addCardsOnPage();
