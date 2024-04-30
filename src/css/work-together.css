@@ -85,8 +85,8 @@
   line-height: 1.28em;
 }
 
-.input-wrapper.succes::after {
-  content: 'Succes!';
+.input-wrapper.success::after {
+  content: 'Success!';
   color: #3cbc81;
   background-color: #3cbc81;
   font-size: 14px;

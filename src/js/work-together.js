@@ -6,57 +6,82 @@ const submitButton = document.querySelector('.footer-form-button');
 const modalBackdrop = document.querySelector('.modal-backdrop');
 const emailField = document.querySelector('input[name="email"]');
 const commentsField = document.querySelector('input[name="comments"]');
-const labelField = document.querySelectorAll('.input-wrapper');
-submitButton.addEventListener('click', handleFormSubmission);
+const emailLabel = document.querySelector('.input-wrapper.email');
+const commentsLabel = document.querySelector('.input-wrapper.comment');
 
-async function handleFormSubmission(event) {
+submitButton.addEventListener('click', handleFormSubmission);
+emailField.addEventListener('input', handleInputValidation);
+commentsField.addEventListener('input', handleInputValidation);
+
+function handleFormSubmission(event) {
   event.preventDefault();
-  const formData = {
+
+  if (commentsField.value.trim() === '') {
+    highlightField(commentsLabel, 'invalid');
+    showErrorMessage('Please leave a comment');
+    return;
+  }
+
+  if (!emailField.checkValidity()) {
+    highlightField(emailLabel, 'invalid');
+    showErrorMessage('Invalid email, please try again!');
+    return;
+  }
+
+  sendFormData({
     email: emailField.value,
     comment: commentsField.value,
-  };
+  });
+}
 
-  if (emailField.checkValidity()) {
-    axios
-      .post('https://portfolio-js.b.goit.study/api/requests', formData)
-      .then(response => {
-        modalBackdrop.classList.remove('visually-hidden');
-        emailField.value = '';
-        commentsField.value = '';
-        labelField.forEach(item => {
-          item.classList.remove('invalid');
-          item.classList.add('succes');
-        });
-      })
-      .catch(error => {
-        labelField.forEach(item => {
-          item.classList.remove('succes');
-          item.classList.add('invalid');
-        })
-        iziToast.error({
-          title: 'Error',
-          message: `Something is wrong, try again!`,
-          maxWidth: 300,
-          progressBar: true,
-          position: 'bottomRight',
-          color: '#1c1d20',
-          backgroundColor: '#ed3b44',
-        });
-      });
+function sendFormData(formData) {
+  axios
+    .post('https://portfolio-js.b.goit.study/api/requests', formData)
+    .then(handleSuccess)
+    .catch(handleFailure);
+}
+
+function handleSuccess() {
+  modalBackdrop.classList.remove('visually-hidden');
+  clearFormFields();
+  highlightField(emailLabel, 'success');
+  highlightField(commentsLabel, 'success');
+}
+
+function handleFailure() {
+  showErrorMessage('Something went wrong, please try again!');
+  highlightField(emailLabel, 'invalid');
+}
+
+function clearFormFields() {
+  emailField.value = '';
+  commentsField.value = '';
+}
+
+function showErrorMessage(message) {
+  iziToast.error({
+    title: 'Error',
+    message: message,
+    maxWidth: 300,
+    progressBar: true,
+    position: 'bottomRight',
+    color: '#1c1d20',
+    backgroundColor: '#ed3b44',
+  });
+}
+
+function highlightField(field, status) {
+  field.classList.remove('success', 'invalid');
+  field.classList.add(status);
+}
+
+function handleInputValidation() {
+  if (this === emailField && emailField.checkValidity()) {
+    highlightField(emailLabel, 'success');
+  } else if (this === commentsField && commentsField.value.trim() !== '') {
+    highlightField(commentsLabel, 'success');
   } else {
-    labelField.forEach(item => {
-      item.classList.remove('succes');
-      item.classList.add('invalid');
-    });
-    iziToast.error({
-      title: 'Error',
-      message: `Invalid data, try again!`,
-      maxWidth: 300,
-      progressBar: true,
-      position: 'bottomRight',
-      color: '#1c1d20',
-      backgroundColor: '#ed3b44',
-    });
+    highlightField(this === emailField ? emailLabel : commentsLabel, 'invalid');
   }
 }
 
