@@ -13,6 +13,7 @@ const containerSwiper = document.querySelector('.swiper_js');
 const list = document.querySelector('.swiper_reviews');
 const placeholderText = document.querySelector('.placeholder_text');
 
+
 const swiperParam = {
   navigation: {
     nextEl: '.end',
@@ -41,20 +42,8 @@ async function addCardsOnPage() {
   try {
     const data = await getApi();
     list.insertAdjacentHTML('beforeend', createMarkup(data));
-  } catch (error) {
-    placeholderText.classList.replace('visually-hidden', 'title_not_found');
-    iziToast.show({
-      message: 'Reviews Not found',
-      backgroundColor: '#ed3b44',
-      messageColor: '#fafafa',
-      position: 'topRight',
-      timeout: 2000,
-    });
-  }
-  try {
-    const data = await getApi();
-    list.insertAdjacentHTML('beforeend', createMarkup(data));
     initSwiper(containerSwiper, swiperParam);
+    
   } catch (error) {
     placeholderText.classList.replace('visually-hidden', 'title_not_found');
     iziToast.show({
@@ -70,14 +59,14 @@ async function addCardsOnPage() {
 function createMarkup(arr) {
   return arr
     .map(
-      ({ id, author, avatar_url, review }) => `
-    <div class="swiper-slide">
-    <li class="card" data-id ="${id}">
-    <img class="card_img" src="${avatar_url}" alt="photo">
-    <h3 class="card_title">${author}</h3>
-    <p class="card_text">${review}</p> 
+      ({ author, avatar_url, review }) => `
+      <ul class="swiper-slide reviews_cards">
+      <li class="card">
+      <img class="card_img" src="${avatar_url}" alt="photo">
+      <h3 class="card_title">${author}</h3>
+      <p class="card_text">${review}</p> 
     </li>
-    </div>
+    </ul>
     `
     )
     .join('');
