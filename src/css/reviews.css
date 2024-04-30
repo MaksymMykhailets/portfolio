@@ -15,14 +15,16 @@
     color: rgba(250, 250, 250, 0.4);
 }
 
+
 .card{
     border: 1px solid rgba(250, 250, 250, 0.2);
     border-radius: 20px;
     padding: 32px 24px;
     width: auto;
-    height: 302px;
+    height: 340px;
 
 }
+
 
 .card_title {
     font-weight: 600;
@@ -79,6 +81,7 @@
     border: 1px solid rgba(250, 250, 250, 0.2);
     color: rgba(250, 250, 250, 0.2);
 }
+ 
 
 .swiper_js {
     overflow: hidden;
