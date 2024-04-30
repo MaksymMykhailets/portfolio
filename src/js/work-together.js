@@ -6,6 +6,7 @@ const submitButton = document.querySelector('.footer-form-button');
 const modalBackdrop = document.querySelector('.modal-backdrop');
 const emailField = document.querySelector('input[name="email"]');
 const commentsField = document.querySelector('input[name="comments"]');
+const labelField = document.querySelectorAll('.input-wrapper');
 submitButton.addEventListener('click', handleFormSubmission);
 
 async function handleFormSubmission(event) {
@@ -22,8 +23,14 @@ async function handleFormSubmission(event) {
         modalBackdrop.classList.remove('visually-hidden');
         emailField.value = '';
         commentsField.value = '';
+        labelField.forEach(item => {
+          item.classList.add('succes');
+        });
       })
       .catch(error => {
+        labelField.forEach(item => {
+          item.classList.add('invalid');
+        })
         iziToast.error({
           title: 'Error',
           message: `Something is wrong, try again!`,
