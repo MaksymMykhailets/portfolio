@@ -51,6 +51,12 @@
 }
 
 @media only screen and (min-width: 1440px) {
+  .down {
+    padding-bottom: 47.5px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
   .left {
     padding-right: 31px;
     padding-left: 0;
