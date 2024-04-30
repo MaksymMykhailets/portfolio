@@ -24,11 +24,13 @@ async function handleFormSubmission(event) {
         emailField.value = '';
         commentsField.value = '';
         labelField.forEach(item => {
+          item.classList.remove('invalid');
           item.classList.add('succes');
         });
       })
       .catch(error => {
         labelField.forEach(item => {
+          item.classList.remove('succes');
           item.classList.add('invalid');
         })
         iziToast.error({
@@ -42,6 +44,10 @@ async function handleFormSubmission(event) {
         });
       });
   } else {
+    labelField.forEach(item => {
+      item.classList.remove('succes');
+      item.classList.add('invalid');
+    });
     iziToast.error({
       title: 'Error',
       message: `Invalid data, try again!`,
