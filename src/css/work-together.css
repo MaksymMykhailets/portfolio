@@ -70,13 +70,13 @@
     line-height: 1.28em;
 }
 
-.lwt-wrapper.succes::after {
-    content: 'Succes!';
-    color: #3cbc81;
-    background-color: #3cbc81;
-    font-size: 14px;
-    letter-spacing: -0.02em;
-    line-height: 1.28em;
+.input-wrapper.success::after {
+  content: 'Success!';
+  color: #3cbc81;
+  background-color: #3cbc81;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  line-height: 1.28em;
 }
 
 .lwt-input {

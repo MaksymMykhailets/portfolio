@@ -56,7 +56,7 @@
   transition: transform 0.5s ease-in-out;
 }
 .open-menu-btn:hover::after {
-    transform: scale(1);
+  transform: scale(1);
 }
 .open-menu-btn:hover {
   color: #ed3b44;
@@ -98,7 +98,6 @@
 }
 .header-menu-item-link {
   position: relative;
-  /* text-decoration: underline; */
   transition: color 0.3s ease-in-out;
 }
 .header-menu-item-link:hover {
@@ -191,7 +190,6 @@
 }
 .modal-item-link {
   position: relative;
-  /* text-decoration: underline; */
   transition: color 0.5s ease-in-out;
 }
 .modal-item-link::after {

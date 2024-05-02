@@ -2,81 +2,98 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
 const modalBackdrop = document.querySelector('.modal-backdrop');
-const btnSend = document.getElementById("btnSend");
-        btnSend.addEventListener('click', submitForm);
+const emailField = document.querySelector('input[name="email"]');
+const commentsField = document.querySelector('input[name="comments"]');
+const emailLabel = document.querySelector('.input-wrapper.email');
+const commentsLabel = document.querySelector('.input-wrapper.comment');
 
-        function submitForm(event) 
-        {   
-            event.preventDefault();
-            
-            const email = document.querySelector('input[name="email"]');
-            const comment = document.querySelector('input[name="comment"]');
+submitButton.addEventListener('click', handleFormSubmission);
+emailField.addEventListener('input', handleInputValidation);
+commentsField.addEventListener('input', handleInputValidation);
 
-            if(!email.checkValidity())
-            {
-                iziToast.error({
-                  title: 'Error',
-                  message: 'Invalid data, try again!',
-                  maxWidth: 300,
-                  progressBar: true,
-                  position: 'bottomRight',
-                  color: '#1c1d20',
-                  backgroundColor: '#ed3b44',
-                });
-                return;
-            }
+function handleFormSubmission(event) {
+  event.preventDefault();
 
-            const data = {
-                email: email.value,
-                comment: comment.value
-            };
-            
-            fetch('https://portfolio-js.b.goit.study/api/requests', {  
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data)
-            })
-            .then(response => {
-                if (response.ok) {
-                    modalBackdrop.classList.remove("visually-hidden");
-                } else {
-                        iziToast.error({
-                        title: 'Error',
-                        message: 'Something is wrong, try again!',
-                        maxWidth: 300,
-                        progressBar: true,
-                        position: 'bottomRight',
-                        color: '#1c1d20',
-                        backgroundColor: '#ed3b44',
-                    });
-                }
-            }).catch(error => {
-                console.error("Error:", error);
-            });
-        }
+  if (commentsField.value.trim() === '') {
+    highlightField(commentsLabel, 'invalid');
+    showErrorMessage('Please leave a comment');
+    return;
+  }
 
-        const emailInput = document.getElementsByName("email")[0];
+  if (!emailField.checkValidity()) {
+    highlightField(emailLabel, 'invalid');
+    showErrorMessage('Invalid email, please try again!');
+    return;
+  }
 
-        emailInput.addEventListener("input", function() {
-            const maxLength = emailInput.offsetWidth / 8;
-            const value = emailInput.value;
+  sendFormData({
+    email: emailField.value,
+    comment: commentsField.value,
+  });
+}
 
-            if (value.length > maxLength) {
-              emailInput.value = value.substring(0, maxLength) + "...";
-            }
-        });
+function sendFormData(formData) {
+  axios
+    .post('https://portfolio-js.b.goit.study/api/requests', formData)
+    .then(handleSuccess)
+    .catch(handleFailure);
+}
 
-        const modalCloseButton = document.querySelector('.modal-close-btn');
-        modalCloseButton.addEventListener('click', () =>
-             modalBackdrop.classList.add('visually-hidden')
-        );
-        modalBackdrop.addEventListener('click', () => {
-            if (event.target === modalBackdrop) {
-            modalBackdrop.classList.add('visually-hidden');
-            }
-        });
-        document.addEventListener('keydown', event => {
-            if (event.key === 'Escape') {
-                modalBackdrop.classList.add('visually-hidden');
-            }
-        });
+function handleSuccess() {
+  modalBackdrop.classList.remove('visually-hidden');
+  clearFormFields();
+  highlightField(emailLabel, 'success');
+  highlightField(commentsLabel, 'success');
+}
+
+function handleFailure() {
+  showErrorMessage('Something went wrong, please try again!');
+  highlightField(emailLabel, 'invalid');
+}
+
+function clearFormFields() {
+  emailField.value = '';
+  commentsField.value = '';
+}
+
+function showErrorMessage(message) {
+  iziToast.error({
+    title: 'Error',
+    message: message,
+    maxWidth: 300,
+    progressBar: true,
+    position: 'bottomRight',
+    color: '#1c1d20',
+    backgroundColor: '#ed3b44',
+  });
+}
+
+function highlightField(field, status) {
+  field.classList.remove('success', 'invalid');
+  field.classList.add(status);
+}
+
+function handleInputValidation() {
+  if (this === emailField && emailField.checkValidity()) {
+    highlightField(emailLabel, 'success');
+  } else if (this === commentsField && commentsField.value.trim() !== '') {
+    highlightField(commentsLabel, 'success');
+  } else {
+    highlightField(this === emailField ? emailLabel : commentsLabel, 'invalid');
+  }
+}
+
+const modalCloseButton = document.querySelector('.modal-close-button');
+modalCloseButton.addEventListener('click', () =>
+  modalBackdrop.classList.add('visually-hidden')
+);
+modalBackdrop.addEventListener('click', () => {
+  if (event.target === modalBackdrop) {
+    modalBackdrop.classList.add('visually-hidden');
+  }
+});
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape') {
+    modalBackdrop.classList.add('visually-hidden');
+  }
+});
