@@ -39,6 +39,8 @@ const btnSend = document.getElementById("btnSend");
             .then(response => {
                 if (response.ok) {
                     modalBackdrop.classList.remove("visually-hidden");
+                    const form = document.getElementsByClassName("form")[0];
+                    form.reset()
                 } else {
                         iziToast.error({
                         title: 'Error',
@@ -80,3 +82,4 @@ const btnSend = document.getElementById("btnSend");
                 modalBackdrop.classList.add('visually-hidden');
             }
         });
+
