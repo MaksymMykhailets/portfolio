@@ -1,10 +1,5 @@
-class Accordion {
-  constructor(element) {
-    this.element = element;
-    this.content = this.element.querySelector('.faq-ac-panel');
-    this.arrow = this.element.querySelector('.faq-btn');
-    this.element.addEventListener('click', () => this.toggle());
-  }
+// Отримуємо всі елементи кнопок акордеону
+const accordionButtons = document.querySelectorAll('.faq-btn');
 
   toggle() {
     this.element.classList.toggle('active');
@@ -19,9 +14,3 @@ class Accordion {
   }
 }
 
-document.addEventListener('DOMContentLoaded', initializeAccordion);
-
-function initializeAccordion() {
-  const accordions = document.querySelectorAll('.faq-ac');
-  accordions.forEach(accordion => new Accordion(accordion));
-}
