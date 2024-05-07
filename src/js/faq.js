@@ -1,37 +1,31 @@
-// Отримуємо всі елементи кнопок акордеону
-const accordionButtons = document.querySelectorAll('.faq-btn');
 
-// Додаємо подію кліку на кожну кнопку акордеону
-accordionButtons.forEach(button => {
-  button.addEventListener('click', () => toggleAccordion(button));
-});
 
-function toggleAccordion(button) {
-  const listItem = button.closest('.faq-ac');
-  const content = listItem.querySelector('.faq-ac-panel');
-  const isActive = listItem.classList.contains('active');
-  const allAccordions = document.querySelectorAll('.faq-ac');
+ class Accordion {
+   constructor(element) {
+     this.element = element;
+     this.content = this.element.querySelector('.faq-ac-panel');
+     this.arrow = this.element.querySelector('.faq-btn');
+     this.element.addEventListener('click', () => this.toggle());
+   }
 
-  // Закриваємо всі активні елементи
-  allAccordions.forEach(accordion => {
-    if (accordion !== listItem) {
-      accordion.classList.remove('active');
-      accordion.querySelector('.faq-ac-panel').style.maxHeight = null;
-      const sibling = accordion.nextElementSibling || accordion.previousElementSibling;
-      if (sibling && sibling.classList.contains('faq-ac')) {
-        sibling.querySelector('.faq-ac-panel').style.maxHeight = '0';
-      }
-    }
-  });
+   toggle() {
+     this.element.classList.toggle('active');
+     this.arrow.style.transform =
+       this.arrow.style.transform === 'rotate(0.5turn)'
+         ? 'none'
+         : 'rotate(0.5turn)';
+     if (this.content.style.maxHeight !== '0') {
+     } else {
+       this.content.style.maxHeight = this.content.scrollHeight + 'px';
+     }
+   }
+ }
 
-  // Змінюємо розмір активного елемента
-  listItem.classList.toggle('active', !isActive);
-  content.style.maxHeight = isActive ? null : content.scrollHeight + 'px';
+ document.addEventListener('DOMContentLoaded', initializeAccordion);
 
-  // Змінюємо розмір сусіда, якщо він існує
-  const sibling = isActive ? null : listItem.nextElementSibling || listItem.previousElementSibling;
-  if (sibling && sibling.classList.contains('faq-ac')) {
-    const siblingContent = sibling.querySelector('.faq-ac-panel');
-    siblingContent.style.maxHeight = isActive ? '0' : siblingContent.scrollHeight + 'px';
-  }
-}
+ function initializeAccordion() {
+   const accordions = document.querySelectorAll('.faq-ac');
+   accordions.forEach(accordion => new Accordion(accordion));
+ }
+
+
