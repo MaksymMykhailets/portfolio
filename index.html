@@ -19,7 +19,7 @@
     <script type="module" crossorigin src="/portfolio/commonHelpers.js"></script>
     <link rel="modulepreload" crossorigin href="/portfolio/assets/vendor-05c5c2f5.js">
     <link rel="stylesheet" href="/portfolio/assets/vendor-827d51bf.css">
-    <link rel="stylesheet" href="/portfolio/assets/index-f826d235.css">
+    <link rel="stylesheet" href="/portfolio/assets/index-be10629b.css">
   </head>
   <body>
     <header id="header" class="section header-cont container">
@@ -577,7 +577,7 @@
       </li>
       <div class="faq-line"></div>
       <li class="faq-ac right">
-        <div class="faq-wrapper contact">
+        <div class="faq-wrapper">
           <p class="faq-item">How can I contact you?</p>
           <button type="button" class="faq-btn">
             <svg class="faq-arrow-down" width="20" height="20">
@@ -1057,22 +1057,12 @@
       <div class="swiper-wrapper swiper_reviews"></div>
       <div class="buttons_reviews">
         <button type="button" class="start btn_reviews">
-          <svg
-            class="reviews_icon_start"
-            width="24"
-            height="24"
-            style="stroke: #fafafa"
-          >
+          <svg class="reviews_icon reviews_icon_start" width="24" height="24">
             <use href="/portfolio/assets/icon-sprite-1e5406a1.svg#icon-arrow-left"></use>
           </svg>
         </button>
         <button type="button" class="end btn_reviews">
-          <svg
-            class="reviews_icon_end"
-            width="24"
-            height="24"
-            style="stroke: #fafafa"
-          >
+          <svg class="reviews_icon reviews_icon_end" width="24" height="24">
             <use href="/portfolio/assets/icon-sprite-1e5406a1.svg#icon-arrow-right"></use>
           </svg>
         </button>
@@ -1088,7 +1078,6 @@
       <source srcset="/portfolio/assets/avatar-1ea26237.png 1x, /portfolio/assets/avatar@2x-0bcef3d8.png 2x" />
       <img src="/portfolio/assets/avatar-1ea26237.png" alt="avatar" />
     </picture>
-
     Let’s <span class="footer-title-red">work</span> together
   </h2>
 
@@ -1103,6 +1092,7 @@
           pattern="^\w+(\.\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
           required
         />
+        <span class="input-message email-message"></span>
       </label>
       <label class="input-wrapper comment">
         <input
@@ -1113,6 +1103,7 @@
           maxlength="100"
           required
         />
+        <span class="input-message comment-message"></span>
       </label>
     </div>
     <button class="footer-form-button" type="submit">Send</button>
