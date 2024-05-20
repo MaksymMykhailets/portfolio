@@ -8,30 +8,62 @@ const emailField = document.querySelector('input[name="email"]');
 const commentsField = document.querySelector('input[name="comments"]');
 const emailLabel = document.querySelector('.input-wrapper.email');
 const commentsLabel = document.querySelector('.input-wrapper.comment');
+const emailMessage = document.querySelector('.input-message.email-message');
+const commentMessage = document.querySelector('.input-message.comment-message');
+const modalCloseButton = document.querySelector('.modal-close-button');
 
 submitButton.addEventListener('click', handleFormSubmission);
-emailField.addEventListener('input', handleInputValidation);
-commentsField.addEventListener('input', handleInputValidation);
+modalCloseButton.addEventListener('click', closeModal);
+modalBackdrop.addEventListener('click', event => {
+  if (event.target === modalBackdrop) closeModal();
+});
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape') closeModal();
+});
+document.querySelectorAll('input').forEach(field => {
+  field.addEventListener('input', handleInputValidation);
+});
 
 function handleFormSubmission(event) {
   event.preventDefault();
+  const isValid = validateFields();
+
+  if (isValid) {
+    sendFormData({
+      email: emailField.value,
+      comment: commentsField.value,
+    });
+  }
+}
+
+function validateFields() {
+  let isValid = true;
 
   if (commentsField.value.trim() === '') {
-    highlightField(commentsLabel, 'invalid');
-    showErrorMessage('Please leave a comment');
-    return;
+    updateFieldValidation(
+      commentsLabel,
+      commentMessage,
+      'invalid',
+      'Please leave a comment'
+    );
+    isValid = false;
+  } else {
+    updateFieldValidation(commentsLabel, commentMessage, 'success', '');
   }
 
   if (!emailField.checkValidity()) {
-    highlightField(emailLabel, 'invalid');
-    showErrorMessage('Invalid email, please try again!');
-    return;
+    updateFieldValidation(
+      emailLabel,
+      emailMessage,
+      'invalid',
+      'Invalid email, try again!'
+    );
+    isValid = false;
+  } else {
+    updateFieldValidation(emailLabel, emailMessage, 'success', '');
   }
 
-  sendFormData({
-    email: emailField.value,
-    comment: commentsField.value,
-  });
+  return isValid;
 }
 
 function sendFormData(formData) {
@@ -43,14 +75,20 @@ function sendFormData(formData) {
 
 function handleSuccess() {
   modalBackdrop.classList.remove('visually-hidden');
+  document.body.style.overflow = 'hidden';
   clearFormFields();
-  highlightField(emailLabel, 'success');
-  highlightField(commentsLabel, 'success');
+  resetFieldValidation(emailLabel, emailMessage);
+  resetFieldValidation(commentsLabel, commentMessage);
 }
 
 function handleFailure() {
   showErrorMessage('Something went wrong, please try again!');
-  highlightField(emailLabel, 'invalid');
+  updateFieldValidation(
+    emailLabel,
+    emailMessage,
+    'invalid',
+    'Something went wrong, try again!'
+  );
 }
 
 function clearFormFields() {
@@ -70,32 +108,35 @@ function showErrorMessage(message) {
   });
 }
 
-function highlightField(field, status) {
-  field.classList.remove('success', 'invalid');
-  field.classList.add(status);
+function updateFieldValidation(label, messageElement, status, message) {
+  label.classList.remove('success', 'invalid');
+  if (status) label.classList.add(status);
+  messageElement.textContent = message;
+}
+
+function resetFieldValidation(label, messageElement) {
+  label.classList.remove('success', 'invalid');
+  messageElement.textContent = '';
 }
 
 function handleInputValidation() {
-  if (this === emailField && emailField.checkValidity()) {
-    highlightField(emailLabel, 'success');
-  } else if (this === commentsField && commentsField.value.trim() !== '') {
-    highlightField(commentsLabel, 'success');
+  const field = this === emailField ? emailField : commentsField;
+  const label = this === emailField ? emailLabel : commentsLabel;
+  const message = this === emailField ? emailMessage : commentMessage;
+
+  if (field.checkValidity()) {
+    updateFieldValidation(label, message, 'success', '');
   } else {
-    highlightField(this === emailField ? emailLabel : commentsLabel, 'invalid');
+    updateFieldValidation(
+      label,
+      message,
+      'invalid',
+      'Invalid input, try again!'
+    );
   }
 }
 
-const modalCloseButton = document.querySelector('.modal-close-button');
-modalCloseButton.addEventListener('click', () =>
-  modalBackdrop.classList.add('visually-hidden')
-);
-modalBackdrop.addEventListener('click', () => {
-  if (event.target === modalBackdrop) {
-    modalBackdrop.classList.add('visually-hidden');
-  }
-});
-document.addEventListener('keydown', event => {
-  if (event.key === 'Escape') {
-    modalBackdrop.classList.add('visually-hidden');
-  }
-});
+function closeModal() {
+  modalBackdrop.classList.add('visually-hidden');
+  document.body.style.overflow = '';
+}

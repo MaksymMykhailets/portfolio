@@ -77,21 +77,30 @@
 }
 
 .input-wrapper.invalid::after {
-  content: 'Invalid email,try again';
-  color: #e74a3b;
   background-color: #e74a3b;
-  font-size: 14px;
-  letter-spacing: -0.02em;
-  line-height: 1.28em;
 }
 
 .input-wrapper.success::after {
-  content: 'Success!';
-  color: #3cbc81;
   background-color: #3cbc81;
+}
+
+.input-message {
+  display: none;
   font-size: 14px;
   letter-spacing: -0.02em;
   line-height: 1.28em;
+  position: absolute;
+  bottom: -20px;
+  color: #e74a3b;
+}
+
+.input-wrapper.invalid .input-message {
+  display: block;
+}
+
+.input-wrapper.success .input-message {
+  display: block;
+  color: #3cbc81;
 }
 
 .footer-form-button {
@@ -216,6 +225,7 @@
   align-items: center;
   justify-content: center;
   background: rgba(15, 15, 16, 0.6);
+  overflow: hidden;
 }
 
 .modal-box {

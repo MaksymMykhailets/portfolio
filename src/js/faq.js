@@ -4,30 +4,38 @@ let line = document.querySelector('.faq-line');
 for (let i = 0; i < acc.length; i++) {
   acc[i].addEventListener('click', function () {
     let faqAc = this.parentElement.parentElement;
+    let viewportWidth = window.innerWidth;
 
-    if (faqAc.classList.contains('active')) {
-      faqAc.classList.remove('active');
-      faqAc.querySelector('.faq-ac-panel').style.maxHeight = null;
-      this.children[0].classList.remove('rotate');
-    } else {
-      document.querySelectorAll('.faq-ac.active').forEach(activeEl => {
-        activeEl.classList.remove('active');
-        activeEl.querySelector('.faq-ac-panel').style.maxHeight = null;
-        activeEl.querySelector('.faq-arrow-down').classList.remove('rotate');
+    if (viewportWidth >= 1440) {
+      if (faqAc.classList.contains('active')) {
+        faqAc.classList.remove('active');
+        faqAc.querySelector('.faq-ac-panel').style.maxHeight = null;
+        this.children[0].classList.remove('rotate');
+      } else {
+        faqAc.classList.add('active');
+        faqAc.querySelector('.faq-ac-panel').style.maxHeight =
+          faqAc.querySelector('.faq-ac-panel').scrollHeight + 'px';
+        this.children[0].classList.add('rotate');
+      }
+
+      let activePanels = document.querySelectorAll('.faq-ac.active');
+      let totalHeight = 0;
+      activePanels.forEach(panel => {
+        totalHeight += panel.querySelector('.faq-ac-panel').scrollHeight;
       });
-
-      faqAc.classList.add('active');
-      faqAc.querySelector('.faq-ac-panel').style.maxHeight =
-        faqAc.querySelector('.faq-ac-panel').scrollHeight + 'px';
-      this.children[0].classList.add('rotate');
+      line.style.height = totalHeight + 'px';
+    } else {
+      if (faqAc.classList.contains('active')) {
+        faqAc.classList.remove('active');
+        faqAc.querySelector('.faq-ac-panel').style.maxHeight = null;
+        this.children[0].classList.remove('rotate');
+      } else {
+        faqAc.classList.add('active');
+        faqAc.querySelector('.faq-ac-panel').style.maxHeight =
+          faqAc.querySelector('.faq-ac-panel').scrollHeight + 'px';
+        this.children[0].classList.add('rotate');
+      }
     }
-
-    let activePanels = document.querySelectorAll('.faq-ac.active');
-    let totalHeight = 0;
-    activePanels.forEach(panel => {
-      totalHeight += panel.querySelector('.faq-ac-panel').scrollHeight;
-    });
-    line.style.height = totalHeight + 'px';
   });
 }
 

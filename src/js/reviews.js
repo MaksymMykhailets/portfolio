@@ -1,18 +1,13 @@
 import Swiper from 'swiper/bundle';
-
 import 'swiper/css/bundle';
-
 import { initSwiper } from './swiper';
-
 import { getApi } from './api';
-
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
 const containerSwiper = document.querySelector('.swiper_js');
 const list = document.querySelector('.swiper_reviews');
 const placeholderText = document.querySelector('.placeholder_text');
-
 
 const swiperParam = {
   navigation: {
@@ -42,8 +37,9 @@ async function addCardsOnPage() {
   try {
     const data = await getApi();
     list.insertAdjacentHTML('beforeend', createMarkup(data));
-    initSwiper(containerSwiper, swiperParam);
-    
+    const swiper = initSwiper(containerSwiper, swiperParam);
+    updateButtonState(swiper);
+    swiper.on('slideChange', () => updateButtonState(swiper));
   } catch (error) {
     placeholderText.classList.replace('visually-hidden', 'title_not_found');
     iziToast.show({
@@ -70,6 +66,29 @@ function createMarkup(arr) {
     `
     )
     .join('');
+}
+
+function updateButtonState(swiper) {
+  const prevButton = document.querySelector('.start');
+  const nextButton = document.querySelector('.end');
+
+  if (swiper.isBeginning) {
+    prevButton.setAttribute('disabled', true);
+    prevButton.querySelector('.reviews_icon_start').classList.add('disabled');
+  } else {
+    prevButton.removeAttribute('disabled');
+    prevButton
+      .querySelector('.reviews_icon_start')
+      .classList.remove('disabled');
+  }
+
+  if (swiper.isEnd) {
+    nextButton.setAttribute('disabled', true);
+    nextButton.querySelector('.reviews_icon_end').classList.add('disabled');
+  } else {
+    nextButton.removeAttribute('disabled');
+    nextButton.querySelector('.reviews_icon_end').classList.remove('disabled');
+  }
 }
 
 addCardsOnPage();

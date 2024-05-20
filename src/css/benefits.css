@@ -83,6 +83,10 @@
   width: 187px;
   height: 55px;
 }
+.anchor:hover,
+.anchor:focus {
+  border: #fafafa 1px solid;
+}
 @media only screen and (min-width: 1440px) {
   .anchor {
     margin-left: 672px;
